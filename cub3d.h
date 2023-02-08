@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
+/*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:44 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/01/24 21:37:40 by bkhatib          ###   ########.fr       */
+/*   Updated: 2023/02/07 18:37:44 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <string.h>
+#include <math.h>
 #include <sys/errno.h>
 #include "mlx.h"
 
@@ -53,6 +54,7 @@ typedef struct s_map
 typedef struct s_img
 {
 	void	*ptr;
+	char	*addr;
 	int		len;
 	int		bpp;
 	int		endian;
