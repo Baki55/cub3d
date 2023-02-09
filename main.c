@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:13 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/08 15:36:01 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/09 19:03:10 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	draw_vertical_line(t_program *p, int color)
 	int	y;
 
 	y = 0;
+	// printf("DEBUG x=%d start %d end %d height %d\n", p->x, y, p->draw_end, (p->draw_end - p->draw_start));
 	while (y < p->draw_start)
 	{
 		my_mlx_pixel_put(&(p)->img, p->x, y, 0xFFFFFFF0);
@@ -49,6 +50,7 @@ void	draw_vertical_line(t_program *p, int color)
 
 int		game_loop(t_program *p)
 {
+	int color;
 		p->x = 0;
 		while (p->x < p->screen_w)
 		{
@@ -127,28 +129,45 @@ int		game_loop(t_program *p)
 		}
 		mlx_put_image_to_window(p->mlx, p->win_ptr, p->img.ptr, 0, 0);
 		return (0);
+	// }
 }
 
 int	move(int key, t_program *p)
 {
+	double	old_dir_x;
+    double old_plane_x;
+
+	old_dir_x = p->dir_x;
+	old_plane_x = p->plane_x;
 	if (key == KEY_UP)
 	{
-		if (p->map.map[(int)(p->pos_x + (p->dir_x * 1))][(int)p->pos_y] == '0')
-			p->pos_x += (p->dir_x * 1);
-		if (p->map.map[(int)(p->pos_x)][(int)(p->pos_y + (p->dir_y * 1))] == '0')
-			p->pos_y += p->dir_y * 1;
+		if (p->map.map[(int)(p->pos_x + (p->dir_x))][(int)p->pos_y] == '0')
+			p->pos_x += (p->dir_x);
+		if (p->map.map[(int)(p->pos_x)][(int)(p->pos_y + (p->dir_y))] == '0')
+			p->pos_y += p->dir_y;
 	}
 	else if (key == KEY_DOWN)
 	{
-		if (p->map.map[(int)(p->pos_x - (p->dir_x * 1))][(int)p->pos_y] == '0')
-			p->pos_x -= p->dir_x *1;
-		if (p->map.map[(int)(p->pos_x)][(int)(p->pos_y - (p->dir_y * 1))] == '0')
-			p->pos_y -= p->dir_y * 1;
+		if (p->map.map[(int)(p->pos_x - (p->dir_x))][(int)p->pos_y] == '0')
+			p->pos_x -= p->dir_x;
+		if (p->map.map[(int)(p->pos_x)][(int)(p->pos_y - (p->dir_y))] == '0')
+			p->pos_y -= p->dir_y;
 	}
-	// else if (key == KEY_RIGHT)
-	// {
-		
-	// }
+	if (key == KEY_RIGHT)
+    {
+      p->dir_x = p->dir_x * cos(-0.5) - p->dir_y * sin(-0.5);
+      p->dir_y = old_dir_x * sin(-0.5) + p->dir_y * cos(-0.5);
+      p->plane_x = p->plane_x * cos(-0.5) - p->plane_y * sin(-0.5);
+      p->plane_y = old_plane_x * sin(-0.5) + p->plane_y * cos(-0.5);
+    }
+    //rotate to the left
+    if (key == KEY_LEFT)
+    {
+      p->dir_x = p->dir_x * cos(0.5) - p->dir_y * sin(0.5);
+      p->dir_y = old_dir_x * sin(0.5) + p->dir_y * cos(0.5);
+      p->plane_x = p->plane_x * cos(0.5) - p->plane_y * sin(0.5);
+      p->plane_y = old_plane_x * sin(0.5) + p->plane_y * cos(0.5);
+    }
 	return (0);
 }
 
@@ -162,6 +181,8 @@ int	main(int argc, char **argv)
 	p.map.filename = ft_strdup(argv[1]);
 	parser(&p);
 	p.mlx = mlx_init();
+	if (p.mlx == NULL)
+		ft_error("mlx_init failed\n");
 	p.win_ptr = mlx_new_window(p.mlx, p.screen_w, p.screen_h, "CUB3D");
 	p.img.ptr = mlx_new_image(p.mlx, p.screen_w, p.screen_h);
 	p.img.addr = mlx_get_data_addr(p.img.ptr, &p.img.bpp, &p.img.len, &p.img.endian);
@@ -173,6 +194,7 @@ int	main(int argc, char **argv)
 	p.plane_x = 0;
 	p.plane_y = 0.66;
 	mlx_loop_hook(p.mlx, &game_loop, &p);
-	mlx_key_hook(p.win_ptr, &move, &p);
+	mlx_hook(p.win_ptr, 2, 1L<<0, &move, &p);
+	// mlx_key_hook(p.win_ptr, &move, &p);
 	mlx_loop(p.mlx);
 }

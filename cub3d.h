@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:44 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/07 18:37:44 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/09 18:09:06 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ void	init_game(t_program *game);
 
 /* Parser functions */
 void	parser(t_program *ptr);
-int	check_extension(char *src, char *to_find);
+int		check_extension(char *src, char *to_find);
 void	get_cub(t_program *ptr);
 void	check_cub(char **content);
 void	check_cub_texture(char **content, int *i);
@@ -131,30 +131,33 @@ void	get_colors(t_program *ptr);
 void	get_map(t_program *ptr);
 void	get_player_pos(t_map *map);
 void	check_map(char **map);
-int	check_player_surroundings(char **map, int row, int col);
+int		check_player_surroundings(char **map, int row, int col);
 void	check_full_map(t_map map);
 void	map_checks2(t_map map, int row, int col);
-int	check_extended_wall(char **map, int row);
-int	check_wall(char **map, int row, int col);
-int	check_wall2(char **map, int row, int i);
+int		check_extended_wall(char **map, int row);
+int		check_wall(char **map, int row, int col);
+int		check_wall2(char **map, int row, int i);
 
 /* Utils functions*/
+int		ft_atoi(const char *str);
+void	*ft_calloc(size_t count, size_t size);
+void	ft_bzero(void *s, size_t n);
 void	ft_error(char *error);
-int	nbr_lines(char *filename);
-char	*get_next_line(int fd);
-int	ft_strncmp(char *s1, char *s2, int n);
-int	ft_strcmp(char *s1, char *s2);
-int	is_saperator(char c, char *sap);
-int	count_words(char *str, char *sap);
-char	*ft_strdup_w(char *str, int *index, char *sap);
 char	**ft_split(char *str, char *sap);
-char	*ft_strndup(char *s1, int n);
-int	ft_strlen(char *str);
-void	free_split(char **tab);
-int	check_new_line(char *str);
-int	in_charset(char c, char *set);
-int	get_map_len(t_program *ptr);
+char	*ft_strchr(const char *str, int c);
 char	*ft_strdup(char *s1);
-int	ft_atoi(const char *str);
+int		ft_strlen(char *str);
+int		nbr_lines(char *filename);
+char	*ft_strndup(char *s1, int n);
+char	*get_next_line(int fd);
+int		ft_strncmp(char *s1, char *s2, int n);
+int		ft_strcmp(char *s1, char *s2);
+int		is_saperator(char c, char *sap);
+int		count_words(char *str, char *sap);
+char	*ft_strdup_w(char *str, int *index, char *sap);
+void	free_split(char **tab);
+int		check_new_line(char *str);
+int		in_charset(char c, char *set);
+int		get_map_len(t_program *ptr);
 
 #endif
