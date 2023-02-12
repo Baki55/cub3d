@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:44 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/12 15:58:06 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/12 17:15:54 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,9 @@ void	update_camera_raydir_delatdist(t_program *p);
 void	get_step_and_side_dist(t_program *p);
 void	search_wall(t_program *p);
 void	calculate_wall_size(t_program *p);
+/* rendering functions */
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
+void	draw_vertical_line(t_program *p, int color);
 /* Parser functions */
 void	parser(t_program *ptr);
 int		check_extension(char *src, char *to_find);
