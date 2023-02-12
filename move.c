@@ -68,7 +68,5 @@ int	move(int key, t_program *p)
 	if (key == KEY_RIGHT)
 		rotate_right(p);
     if (key == KEY_LEFT)
-		rotate_left(p);
-	printf("dirx= %f diry= %f\n", p->dir_x, p->dir_y);
 	return (0);
 }
