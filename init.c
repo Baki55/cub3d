@@ -6,11 +6,28 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:37:58 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/01/26 16:55:27 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/12 14:59:11 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	init_mlx_win_pos(t_program *p)
+{
+	p->mlx = mlx_init();
+	if (p->mlx == NULL)
+		ft_error("mlx_init failed\n");
+	p->win_ptr = mlx_new_window(p->mlx, p->screen_w, p->screen_h, "CUB3D");
+	p->img.ptr = mlx_new_image(p->mlx, p->screen_w, p->screen_h);
+	p->img.addr = mlx_get_data_addr(p->img.ptr, &p->img.bpp, &p->img.len, &p->img.endian);
+	p->pos_x = p->map.player.x + 0.5;
+	p->pos_y = p->map.player.y + 0.5;
+	p->map.map[p->map.player.x][p->map.player.y] = '0';
+	p->dir_x = -1;
+	p->dir_y = 0;
+	p->plane_x = 0;
+	p->plane_y = 0.66;
+}
 
 void	init_color(t_color *color)
 {

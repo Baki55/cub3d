@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:44 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/09 18:09:06 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/12 15:58:06 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,10 +114,17 @@ typedef struct s_program
 
 
 /* Init functions */
+void	init_mlx_win_pos(t_program *p);
 void	init_color(t_color *color);
 void	init_map(t_map *map);
 void	init_game(t_program *game);
-
+/* movements functions */
+int		move(int key, t_program *p);
+/* raycast functions */
+void	update_camera_raydir_delatdist(t_program *p);
+void	get_step_and_side_dist(t_program *p);
+void	search_wall(t_program *p);
+void	calculate_wall_size(t_program *p);
 /* Parser functions */
 void	parser(t_program *ptr);
 int		check_extension(char *src, char *to_find);
