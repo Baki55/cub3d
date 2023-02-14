@@ -67,6 +67,7 @@ int	move(int key, t_program *p)
 		move_forward(p);
 	if (key == KEY_RIGHT)
 		rotate_right(p);
-    if (key == KEY_LEFT)
+	if (key == KEY_LEFT)
+		rotate_left(p);
 	return (0);
 }
