@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
+/*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:44 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/12 17:15:54 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/16 19:28:16 by bkhatib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,5 +169,6 @@ void	free_split(char **tab);
 int		check_new_line(char *str);
 int		in_charset(char c, char *set);
 int		get_map_len(t_program *ptr);
+void	ft_close(t_program *game);
 
 #endif
