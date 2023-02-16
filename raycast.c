@@ -62,13 +62,19 @@ void	search_wall(t_program *p)
 		{
 			p->side_dist_x += p->delta_dist_x;
 			p->map_x += p->step_x;
-			p->side = 0;
+			if (p->step_x == 1)
+				p->side = 'N';//North
+			else
+				p->side = 'S';//South
 		}
 		else
 		{
 			p->side_dist_y += p->delta_dist_y;
 			p->map_y += p->step_y;
-			p->side = 1;
+			if (p->step_y == 1)
+				p->side = 'E';//East
+			else
+				p->side = 'W';//West
 		}
 		if (p->map.map[p->map_x][p->map_y] == '1')
 			hit = 1;
@@ -77,7 +83,7 @@ void	search_wall(t_program *p)
 
 void	calculate_wall_size(t_program *p)
 {
-	if (p->side == 0)
+	if (ft_strchr("NS", p->side))
 		p->perp_wall_dist = (p->side_dist_x - p->delta_dist_x);
 	else
 		p->perp_wall_dist = (p->side_dist_y - p->delta_dist_y);	

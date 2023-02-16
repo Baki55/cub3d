@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:13 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/12 17:32:28 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/16 18:45:38 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		game_loop(t_program *p)
 {
-	int color;
+	int	color;
 
 	p->x = 0;
 	while (p->x < p->screen_w)
@@ -25,9 +25,15 @@ int		game_loop(t_program *p)
 		get_step_and_side_dist(p);
 		search_wall(p);
 		calculate_wall_size(p);
-		color = 0x00FF0000;
-		if (p->side == 1)
-			color = color / 2;
+		color = 0x00000000;
+		if (p->side == 'N')
+			color = 0x00FF0000;
+		if (p->side == 'S')
+			color = 0x0000FFFF;
+		if (p->side == 'W')
+			color = 0x000000FF;
+		if (p->side == 'E')
+			color = 0x00FFFF00;
 		draw_vertical_line(p, color);
 		p->x++;
 	}
