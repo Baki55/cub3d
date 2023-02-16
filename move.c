@@ -16,6 +16,7 @@
 #define KEY_DOWN 115
 #define KEY_RIGHT 100
 #define KEY_LEFT 113
+#define KEY_ESC 53
 
 static void	move_straight(t_program *p)
 {
@@ -69,5 +70,7 @@ int	move(int key, t_program *p)
 		rotate_right(p);
 	if (key == KEY_LEFT)
 		rotate_left(p);
+	if (key == KEY_ESC)
+		ft_close(p);
 	return (0);
 }
