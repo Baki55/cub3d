@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:44 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/18 21:07:32 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/18 22:04:50 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ typedef struct s_program
 	char		**cub_content;
 	t_map		map;
 	t_img		img;
-	t_img		tex;
+	t_img		tex_north_img;
+	t_img		tex_south_img;
+	t_img		tex_west_img;
+	t_img		tex_east_img;
 	double		pos_x;
 	double		pos_y;
 	double		dir_x;
@@ -129,9 +132,9 @@ void	calculate_wall_size(t_program *p);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	draw_vertical_line(t_program *p, int ceilling_color, int floor_color);
 int		rgb_to_int(t_color color);
-void	get_tex(t_program *game_ptr);
-void	init_tex(t_program *game_ptr);
-void	put_tex(t_program *game_ptr);
+t_img	get_tex(t_program *game_ptr);
+void	init_tex(t_program *game_ptr, t_img tex);
+void	put_tex(t_program *game_ptr, t_img tex);
 /* Parser functions */
 void	parser(t_program *ptr);
 int		check_extension(char *src, char *to_find);
