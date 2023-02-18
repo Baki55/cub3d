@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
+/*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:13 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/12 17:32:28 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/18 19:19:02 by bkhatib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ int		game_loop(t_program *p)
 		get_step_and_side_dist(p);
 		search_wall(p);
 		calculate_wall_size(p);
+		get_tex(p);
+		init_tex(p);
+		put_tex(p);
 		color = 0x00FF0000;
 		if (p->side == 1)
 			color = color / 2;
