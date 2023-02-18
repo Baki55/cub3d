@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:44 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/16 19:37:07 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/18 10:56:21 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct s_map
 	char		*south_texture;
 	char		*west_texture;
 	char		*east_texture;
-	char		*collectible;
 	char		*filename;
 	char		starting_pos;
 	t_color		floor_color;
@@ -100,7 +99,7 @@ typedef struct s_program
 	int			step_x;
 	int			step_y;
 	int			hit;
-	char		side;
+	int			side;
 	int			map_x;
 	int			map_y;
 	int			line_height;
