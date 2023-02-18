@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:44 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/18 10:56:21 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/18 21:07:32 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,13 +123,15 @@ int		move(int key, t_program *p);
 /* raycast functions */
 void	update_camera_raydir_delatdist(t_program *p);
 void	get_step_and_side_dist(t_program *p);
-void	search_collectibles(t_program *p);
 void	search_wall(t_program *p);
 void	calculate_wall_size(t_program *p);
 /* rendering functions */
-void	render_collectibles(t_program *p);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
-void	draw_vertical_line(t_program *p, int color);
+void	draw_vertical_line(t_program *p, int ceilling_color, int floor_color);
+int		rgb_to_int(t_color color);
+void	get_tex(t_program *game_ptr);
+void	init_tex(t_program *game_ptr);
+void	put_tex(t_program *game_ptr);
 /* Parser functions */
 void	parser(t_program *ptr);
 int		check_extension(char *src, char *to_find);

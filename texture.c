@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
+/*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 19:31:13 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/16 19:32:20 by bkhatib          ###   ########.fr       */
+/*   Updated: 2023/02/18 20:52:34 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include <stdio.h>
 
 void	get_tex(t_program *game_ptr)
 {
@@ -26,7 +27,7 @@ void	get_tex(t_program *game_ptr)
 	if (game_ptr->side == 1 && game_ptr->step_y == 1)
 		game_ptr->tex.ptr = mlx_xpm_file_to_image(game_ptr->mlx, game_ptr->\
 		map.east_texture, &game_ptr->tex.width, &game_ptr->tex.height);
-	game_ptr->tex.arr = (int *)mlx_get_data_addr(game_ptr->tex.ptr, &game_ptr->\
+	game_ptr->tex.arr = (int*)mlx_get_data_addr(game_ptr->tex.ptr, &game_ptr->\
 		tex.len, &game_ptr->tex.bpp, &game_ptr->tex.endian);
 }
 
@@ -53,7 +54,7 @@ void	put_tex(t_program *game_ptr)
 {
 	int	color;
 	int	y;
-
+	
 	y = game_ptr->draw_start;
 	while (y < game_ptr->draw_end)
 	{
@@ -62,7 +63,8 @@ void	put_tex(t_program *game_ptr)
 		color = game_ptr->tex.arr[game_ptr->tex.height * game_ptr->tex_y + game_ptr->tex_x];
 		if (game_ptr->side == 1)
 			color = (color >> 1) & 8355711;
-		game_ptr->img.arr[y * (game_ptr->screen_w) + (game_ptr->x)] = color;  // probleme ici
+		my_mlx_pixel_put(&(game_ptr->img), game_ptr->x, y, color);
+		// game_ptr->img.addr[y * (game_ptr->screen_w) + (game_ptr->x)] = color;  // probleme ici
 		y++;
 	}
 }
