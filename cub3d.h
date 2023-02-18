@@ -6,7 +6,7 @@
 /*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:44 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/16 19:28:16 by bkhatib          ###   ########.fr       */
+/*   Updated: 2023/02/18 19:00:32 by bkhatib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,9 @@ void	calculate_wall_size(t_program *p);
 /* rendering functions */
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	draw_vertical_line(t_program *p, int color);
+void	get_tex(t_program *game_ptr);
+void	init_tex(t_program *game_ptr);
+void	put_tex(t_program *game_ptr);
 /* Parser functions */
 void	parser(t_program *ptr);
 int		check_extension(char *src, char *to_find);
