@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:13 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/18 22:05:53 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/18 22:10:31 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,20 @@ void	load_textures(t_program *p)
 		&p->tex_east_img.len, &p->tex_east_img.bpp, &p->tex_east_img.endian);
 }
 
+static int	close_game(t_program *game)
+{
+	int	i;
+
+	i = 0;
+	while (game->map.map[i])
+		free(game->map.map[i++]);
+	free(game->map.map);
+	free(game->map.filename);
+	if (game->img.ptr)
+		mlx_destroy_image(game->mlx, game->img.ptr);
+	exit(EXIT_SUCCESS);
+}
+
 int	main(int argc, char **argv)
 {
 	t_program	p;
@@ -72,5 +86,6 @@ int	main(int argc, char **argv)
 	load_textures(&p);
 	mlx_loop_hook(p.mlx, &game_loop, &p);
 	mlx_hook(p.win_ptr, 2, 1L<<0, &move, &p);
+	mlx_hook(p.win_ptr, 17, 0L, close_game, &p);
 	mlx_loop(p.mlx);
 }
