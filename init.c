@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:37:58 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/12 17:02:00 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/16 18:44:51 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	init_starting_position(t_program *p)
 {
 	p->pos_x = p->map.player.x + 0.5;
 	p->pos_y = p->map.player.y + 0.5;
-	p->dir_x = 0;
-	p->dir_y = 0;
-	p->plane_x = 0;
-	p->plane_y = 0;
+	p->dir_x = 0.00000000;
+	p->dir_y = 0.00000000;
+	p->plane_x = 0.00000000;
+	p->plane_y = 0.00000000;
 	if (p->map.starting_pos == 'N')
 		p->dir_x = -1;
 	else if (p->map.starting_pos == 'S')
@@ -28,13 +28,13 @@ void	init_starting_position(t_program *p)
 		p->dir_y = -1;
 	else if (p->map.starting_pos == 'E')
 		p->dir_y = 1;
-	if (p->dir_x != 0 && ft_strchr("NS", p->map.starting_pos))
+	if (p->dir_x != 0.0 && ft_strchr("NS", p->map.starting_pos))
 		p->plane_y = 0.66 * -(p->dir_x);
-	else if (p->dir_x != 0 && ft_strchr("WE", p->map.starting_pos))
+	else if (p->dir_x != 0.0 && ft_strchr("WE", p->map.starting_pos))
 		p->plane_y = 0.66 * p->dir_x;
-	else if (p->dir_y != 0 && ft_strchr("NS", p->map.starting_pos))
+	else if (p->dir_y != 0.0 && ft_strchr("NS", p->map.starting_pos))
 		p->plane_x = 0.66 * -(p->dir_y);
-	else if (p->dir_y != 0 && ft_strchr("WE", p->map.starting_pos))
+	else if (p->dir_y != 0.0 && ft_strchr("WE", p->map.starting_pos))
 		p->plane_x = 0.66 * p->dir_y;
 }
 

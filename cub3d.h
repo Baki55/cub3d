@@ -6,7 +6,7 @@
 /*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:44 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/18 19:00:32 by bkhatib          ###   ########.fr       */
+/*   Updated: 2023/02/19 13:13:39 by bkhatib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ typedef struct s_program
 	char		**cub_content;
 	t_map		map;
 	t_img		img;
-	t_img		tex;
+	t_img		tex_north_img;
+	t_img		tex_south_img;
+	t_img		tex_west_img;
+	t_img		tex_east_img;
 	double		pos_x;
 	double		pos_y;
 	double		dir_x;
@@ -127,10 +130,11 @@ void	search_wall(t_program *p);
 void	calculate_wall_size(t_program *p);
 /* rendering functions */
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
-void	draw_vertical_line(t_program *p, int color);
-void	get_tex(t_program *game_ptr);
-void	init_tex(t_program *game_ptr);
-void	put_tex(t_program *game_ptr);
+void	draw_vertical_line(t_program *p, int ceilling_color, int floor_color);
+int		rgb_to_int(t_color color);
+t_img	get_tex(t_program *game_ptr);
+void	init_tex(t_program *game_ptr, t_img tex);
+void	put_tex(t_program *game_ptr, t_img tex);
 /* Parser functions */
 void	parser(t_program *ptr);
 int		check_extension(char *src, char *to_find);
