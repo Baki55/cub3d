@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:19:48 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/07 21:07:33 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/23 17:18:53 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	get_map_textures(t_program *game_ptr)
 	i = 0;
 	while (i < 4)
 	{
-		splited = ft_split(game_ptr->cub_content[i++], ", \n");
+		splited = ft_split(game_ptr->cub_content[i], ", \n");
+		i++;
 		if (!splited[0])
 			return ;
 		if (ft_strcmp(splited[0], "NO") == 0)

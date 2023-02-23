@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:13 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/18 22:10:31 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:11:12 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,22 @@ static int	close_game(t_program *game)
 	while (game->map.map[i])
 		free(game->map.map[i++]);
 	free(game->map.map);
+	i = 0;
+	while (game->cub_content[i])
+		free(game->cub_content[i++]);
+	free(game->cub_content);
 	free(game->map.filename);
-	if (game->img.ptr)
-		mlx_destroy_image(game->mlx, game->img.ptr);
+	free(game->map.north_texture);
+	free(game->map.south_texture);
+	free(game->map.west_texture);
+	free(game->map.east_texture);
+	mlx_destroy_image(game->mlx, game->img.ptr);
+	mlx_destroy_image(game->mlx, game->tex_north_img.ptr);
+	mlx_destroy_image(game->mlx, game->tex_south_img.ptr);
+	mlx_destroy_image(game->mlx, game->tex_west_img.ptr);
+	mlx_destroy_image(game->mlx, game->tex_east_img.ptr);
+	mlx_destroy_window(game->mlx, game->win_ptr);
+	free(game->mlx);
 	exit(EXIT_SUCCESS);
 }
 
@@ -81,6 +94,8 @@ int	main(int argc, char **argv)
 		ft_error("Usage: ./cub3D ./path_to_map\n");
 	init_game(&p);
 	p.map.filename = ft_strdup(argv[1]);
+	if (p.map.filename == NULL)
+		ft_error("Malloc failed\n");
 	parser(&p);
 	init_mlx_win_pos(&p);
 	load_textures(&p);

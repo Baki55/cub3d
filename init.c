@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:37:58 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/16 18:44:51 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/19 16:37:49 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	init_game(t_program *game)
 {
 	init_map(&game->map);
 	game->cub_content = NULL;
-	game->screen_h = 480;
-	game->screen_w = 640;
+	game->screen_h = 720;
+	game->screen_w = 1080;
 	game->x = 0;
 }

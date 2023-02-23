@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 21:39:28 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/09 18:14:17 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:15:46 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,10 @@ static char	*readfile(char *file, int fd)
 	int		end;
 
 	end = 1;
-	tmp = ft_calloc(10, sizeof(char));
+	tmp = ft_calloc(2, sizeof(char));
 	while (!ft_strchr(tmp, '\n') && end != 0)
 	{
-		end = read(fd, tmp, 10);
+		end = read(fd, tmp, 1);
 		if (end == -1)
 		{
 			free(tmp);
@@ -134,28 +134,3 @@ char	*get_next_line(int fd)
 	file = point_nxtline(file);
 	return (line);
 }
-
-// char	*get_next_line(int fd)
-// {
-// 	char	*tmp;
-// 	char	*line;
-// 	char	buf;
-// 	int		i;
-
-// 	i = 0;
-// 	tmp = ft_calloc(2, sizeof(char));
-// 	if (!tmp)
-// 		return (NULL);
-// 	while (read(fd, &buf, 1) == 1)
-// 	{
-// 		tmp[0] = buf;
-		
-// 		line[i++] = buf;
-// 		if (buf == '\n')
-// 			break ;
-// 	}
-// 	line[i] = '\0';
-// 	if (!line[0])
-// 		return (NULL);
-// 	return (ft_strdup(line));
-// }

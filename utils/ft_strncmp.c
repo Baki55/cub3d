@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
+/*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:15:05 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/01/24 20:15:18 by bkhatib          ###   ########.fr       */
+/*   Updated: 2023/02/21 17:33:33 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int	ft_strncmp(char *s1, char *s2, int n)
 		i++;
 	if (i == n)
 		return (0);
-	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

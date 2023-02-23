@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:44 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/18 22:04:50 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/23 16:56:53 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,17 +88,9 @@ typedef struct s_program
 	double		side_dist_x;
 	double		side_dist_y;
 	double		perp_wall_dist;
-	double		m_speed;
-	double		r_angle;
 	double		wallx;
 	double		tex_pos;
 	double		tex_step;
-	int			r_right;
-	int			m_right;
-	int			r_left;
-	int			m_left;
-	int			m_up;
-	int			m_down;
 	int			step_x;
 	int			step_y;
 	int			hit;
