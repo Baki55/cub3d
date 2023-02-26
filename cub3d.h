@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
+/*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:44 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/19 13:13:39 by bkhatib          ###   ########.fr       */
+/*   Updated: 2023/02/23 18:19:02 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,17 +88,9 @@ typedef struct s_program
 	double		side_dist_x;
 	double		side_dist_y;
 	double		perp_wall_dist;
-	double		m_speed;
-	double		r_angle;
 	double		wallx;
 	double		tex_pos;
 	double		tex_step;
-	int			r_right;
-	int			m_right;
-	int			r_left;
-	int			m_left;
-	int			m_up;
-	int			m_down;
 	int			step_x;
 	int			step_y;
 	int			hit;
