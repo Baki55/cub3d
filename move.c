@@ -27,18 +27,18 @@
 
 static void	move_straight(t_program *p)
 {
-	if (p->map.map[(int)(p->pos_x + (p->dir_x * 0.2))][(int)p->pos_y] == '0')
-		p->pos_x += (p->dir_x * 0.2);
-	if (p->map.map[(int)(p->pos_x)][(int)(p->pos_y + (p->dir_y * 0.2))] == '0')
-		p->pos_y += (p->dir_y * 0.2);
+	if (p->map.map[(int)(p->pos_x + (p->dir_x * 0.1))][(int)p->pos_y] == '0')
+		p->pos_x += (p->dir_x * 0.1);
+	if (p->map.map[(int)(p->pos_x)][(int)(p->pos_y + (p->dir_y * 0.1))] == '0')
+		p->pos_y += (p->dir_y * 0.1);
 }
 
 static void	move_forward(t_program *p)
 {
-	if (p->map.map[(int)(p->pos_x - (p->dir_x * 0.2))][(int)p->pos_y] == '0')
-		p->pos_x -= (p->dir_x * 0.2);
-	if (p->map.map[(int)(p->pos_x)][(int)(p->pos_y - (p->dir_y * 0.2))] == '0')
-		p->pos_y -= (p->dir_y * 0.2);
+	if (p->map.map[(int)(p->pos_x - (p->dir_x * 0.1))][(int)p->pos_y] == '0')
+		p->pos_x -= (p->dir_x * 0.1);
+	if (p->map.map[(int)(p->pos_x)][(int)(p->pos_y - (p->dir_y * 0.1))] == '0')
+		p->pos_y -= (p->dir_y * 0.1);
 }
 
 static void	rotate_right(t_program *p)
