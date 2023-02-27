@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
+/*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:13 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/23 18:18:55 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/27 11:19:43 by bkhatib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		game_loop(t_program *p)
+int	game_loop(t_program *p)
 {
 	t_img	texture_to_use;
-	int	ceiling_color;
-	int	floor_color;
+	int		ceiling_color;
+	int		floor_color;
 
 	ceiling_color = rgb_to_int(p->map.ceilling_color);
 	floor_color = rgb_to_int(p->map.floor_color);
@@ -42,21 +42,26 @@ int		game_loop(t_program *p)
 void	load_textures(t_program *p)
 {
 	p->tex_north_img.ptr = mlx_xpm_file_to_image(p->mlx, p->map.north_texture,
-		&p->tex_north_img.width, &p->tex_north_img.height);
+			&p->tex_north_img.width, &p->tex_north_img.height);
 	p->tex_north_img.arr = (int *)mlx_get_data_addr(p->tex_north_img.ptr,
-		&p->tex_north_img.len, &p->tex_north_img.bpp, &p->tex_north_img.endian);
+			&p->tex_north_img.len, &p->tex_north_img.bpp,
+			&p->tex_north_img.endian);
 	p->tex_south_img.ptr = mlx_xpm_file_to_image(p->mlx, p->map.south_texture,
-		&p->tex_south_img.width, &p->tex_south_img.height);
+			&p->tex_south_img.width, &p->tex_south_img.height);
 	p->tex_south_img.arr = (int *)mlx_get_data_addr(p->tex_south_img.ptr,
-		&p->tex_south_img.len, &p->tex_south_img.bpp, &p->tex_south_img.endian);
+			&p->tex_south_img.len, &p->tex_south_img.bpp,
+			&p->tex_south_img.endian);
 	p->tex_west_img.ptr = mlx_xpm_file_to_image(p->mlx, p->map.west_texture,
-		&p->tex_west_img.width, &p->tex_west_img.height);
+			&p->tex_west_img.width, &p->tex_west_img.height);
 	p->tex_west_img.arr = (int *)mlx_get_data_addr(p->tex_west_img.ptr,
-		&p->tex_west_img.len, &p->tex_west_img.bpp, &p->tex_west_img.endian);
+			&p->tex_west_img.len, &p->tex_west_img.bpp,
+			&p->tex_west_img.endian);
 	p->tex_east_img.ptr = mlx_xpm_file_to_image(p->mlx, p->map.east_texture,
-		&p->tex_east_img.width, &p->tex_east_img.height);
-	p->tex_east_img.arr = (int *)mlx_get_data_addr(p->tex_east_img.ptr,
-		&p->tex_east_img.len, &p->tex_east_img.bpp, &p->tex_east_img.endian);
+			&p->tex_east_img.width, &p->tex_east_img.height);
+	p->tex_east_img.arr = (int *)mlx_get_data_addr(
+			p->tex_east_img.ptr,
+			&p->tex_east_img.len, &p->tex_east_img.bpp,
+			&p->tex_east_img.endian);
 }
 
 static int	close_game(t_program *game)
@@ -89,8 +94,8 @@ static int	close_game(t_program *game)
 int	main(int argc, char **argv)
 {
 	t_program	p;
-	
-	if(argc != 2)
+
+	if (argc != 2)
 		ft_error("Usage: ./cub3D ./path_to_map\n");
 	init_game(&p);
 	p.map.filename = ft_strdup(argv[1]);
@@ -100,7 +105,7 @@ int	main(int argc, char **argv)
 	init_mlx_win_pos(&p);
 	load_textures(&p);
 	mlx_loop_hook(p.mlx, &game_loop, &p);
-	mlx_hook(p.win_ptr, 2, 1L<<0, &move, &p);
+	mlx_hook(p.win_ptr, 2, 1L << 0, &move, &p);
 	mlx_hook(p.win_ptr, 17, 0L, close_game, &p);
 	mlx_loop(p.mlx);
 }
