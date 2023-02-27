@@ -18,11 +18,11 @@ void	update_camera_raydir_delatdist(t_program *p)
 	p->raydir_x = p->dir_x + p->plane_x * p->camera_x;
 	p->raydir_y = p->dir_y + p->plane_y * p->camera_x;
 	if (p->raydir_x == 0)
-		p->delta_dist_x = 1e30;
+		p->delta_dist_x = DBL_MAX;
 	else
 		p->delta_dist_x = fabs(1 / p->raydir_x);
 	if (p->raydir_y == 0)
-		p->delta_dist_y = 1e30;
+		p->delta_dist_y = DBL_MAX;
 	else
 		p->delta_dist_y = fabs(1 / p->raydir_y);
 }

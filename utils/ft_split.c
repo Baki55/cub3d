@@ -3,30 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
+/*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:20:36 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/27 15:50:15 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/01/24 20:20:39 by bkhatib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int	is_saperator(char c, char *sap)
+static char	**malloc_error(char **tab)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
+	return (NULL);
+}
+
+int	is_separator(char c, char *sep)
 {
 	int	i;
 
 	i = 0;
-	while (sap[i])
+	while (sep[i])
 	{
-		if (c == sap[i])
+		if (c == sep[i])
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-int	count_words(char *str, char *sap)
+int	count_words(char *str, char *sep)
 {
 	int	i;
 	int	w_count;
@@ -37,7 +48,7 @@ int	count_words(char *str, char *sap)
 	state = 0;
 	while (str[i])
 	{
-		if (!is_saperator(str[i], sap))
+		if (!is_separator(str[i], sep))
 		{
 			if (!state)
 				w_count++;
@@ -53,7 +64,7 @@ int	count_words(char *str, char *sap)
 	return (w_count);
 }
 
-char	*ft_strdup_w(char *str, int *index, char *sap)
+char	*ft_strdup_w(char *str, int *index, char *sep)
 {
 	char	*word;
 	int		len;
@@ -61,15 +72,15 @@ char	*ft_strdup_w(char *str, int *index, char *sap)
 
 	i = *index;
 	len = 0;
-	while (str[i] && !is_saperator(str[i++], sap))
+	while (str[i] && !is_separator(str[i++], sep))
 		len++;
 	word = (char *) malloc(len + 1);
 	if (!word)
-		ft_error("Malloc failed\n");
+		return (NULL);
 	i = 0;
 	while (str[*index])
 	{
-		if (!is_saperator(str[*index], sap))
+		if (!is_separator(str[*index], sep))
 		{
 			word[i++] = str[*index];
 			(*index)++;
@@ -81,7 +92,7 @@ char	*ft_strdup_w(char *str, int *index, char *sap)
 	return (word);
 }
 
-char	**ft_split(char *str, char *sap)
+char	**ft_split(char *str, char *sep)
 {
 	char	**arr_str;
 	int		i;
@@ -90,16 +101,18 @@ char	**ft_split(char *str, char *sap)
 
 	i = 0;
 	w_i = 0;
-	words = count_words(str, sap);
+	words = count_words(str, sep);
 	arr_str = (char **) malloc((words + 1) * 8);
 	if (!arr_str)
-		ft_error("Malloc failed\n");
+		return (NULL);
 	while (w_i < words)
 	{
-		while (is_saperator(str[i], sap) && str[i])
+		while (is_separator(str[i], sep) && str[i])
 			if (!str[i++])
 				break ;
-		arr_str[w_i] = ft_strdup_w(str, &i, sap);
+		arr_str[w_i] = ft_strdup_w(str, &i, sep);
+		if (!arr_str[w_i])
+			return (malloc_error(arr_str));
 		w_i++;
 	}
 	arr_str[words] = 0;
