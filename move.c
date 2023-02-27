@@ -12,19 +12,6 @@
 
 #include "cub3d.h"
 
-/* windows */
-#define KEY_UP 122
-#define KEY_DOWN 115
-#define KEY_RIGHT 100
-#define KEY_LEFT 113
-#define KEY_ESC 65307
-/* mac */
-// #define KEY_UP 13
-// #define KEY_DOWN 1
-// #define KEY_RIGHT 2
-// #define KEY_LEFT 0
-// #define KEY_ESC 53
-
 static void	move_straight(t_program *p)
 {
 	if (p->map.map[(int)(p->pos_x + (p->dir_x * 0.1))][(int)p->pos_y] == '0')
