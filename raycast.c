@@ -80,7 +80,7 @@ void	calculate_wall_size(t_program *p)
 	if (p->side == 0)
 		p->perp_wall_dist = (p->side_dist_x - p->delta_dist_x);
 	else
-		p->perp_wall_dist = (p->side_dist_y - p->delta_dist_y);	
+		p->perp_wall_dist = (p->side_dist_y - p->delta_dist_y);
 	p->line_height = (int)(p->screen_h / p->perp_wall_dist);
 	p->draw_start = -(p->line_height) / 2 + p->screen_h / 2;
 	if (p->draw_start < 0)
