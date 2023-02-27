@@ -6,7 +6,7 @@
 /*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:44 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/27 11:29:45 by bkhatib          ###   ########.fr       */
+/*   Updated: 2023/02/27 11:32:24 by bkhatib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@
 # define KEY_RIGHT 2
 # define KEY_LEFT 0
 # define KEY_ESC 53
+
+# define SCREEN_H 720
+# define SCREEN_W 1080
 
 typedef struct s_color
 {
