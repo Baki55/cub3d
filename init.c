@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
+/*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:37:58 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/19 16:37:49 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/27 11:13:29 by bkhatib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void	init_mlx_win_pos(t_program *p)
 		ft_error("mlx_init failed\n");
 	p->win_ptr = mlx_new_window(p->mlx, p->screen_w, p->screen_h, "CUB3D");
 	p->img.ptr = mlx_new_image(p->mlx, p->screen_w, p->screen_h);
-	p->img.addr = mlx_get_data_addr(p->img.ptr, &p->img.bpp, &p->img.len, &p->img.endian);
+	p->img.addr = mlx_get_data_addr(p->img.ptr, &p->img.bpp,
+			/&p->img.len, &p->img.endian);
 	init_starting_position(p);
 	p->map.map[p->map.player.x][p->map.player.y] = '0';
 }
