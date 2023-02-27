@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
+/*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:47:27 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/09 18:14:52 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/27 11:06:26 by bkhatib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	parser(t_program *ptr)
 {
-	if(check_extension(ptr->map.filename, ".cub") == EXIT_FAILURE)
+	if (check_extension(ptr->map.filename, ".cub") == EXIT_FAILURE)
 		ft_error("Wrong extension.\n");
 	get_cub(ptr);
 	check_cub(ptr->cub_content);
