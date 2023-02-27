@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
+/*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 19:31:13 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/23 18:19:32 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/27 11:23:20 by bkhatib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	put_tex(t_program *game_ptr, t_img tex)
 {
 	int	color;
 	int	y;
-	
+
 	y = game_ptr->draw_start;
 	while (y < game_ptr->draw_end)
 	{
