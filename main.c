@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
+/*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:13 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/27 11:19:43 by bkhatib          ###   ########.fr       */
+/*   Updated: 2023/02/27 17:08:17 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,6 @@ int	main(int argc, char **argv)
 		ft_error("Usage: ./cub3D ./path_to_map\n");
 	init_game(&p);
 	p.map.filename = ft_strdup(argv[1]);
-	if (p.map.filename == NULL)
-		ft_error("Malloc failed\n");
 	parser(&p);
 	init_mlx_win_pos(&p);
 	load_textures(&p);

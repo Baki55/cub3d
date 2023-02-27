@@ -3,25 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
+/*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:20:36 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/01/24 20:20:39 by bkhatib          ###   ########.fr       */
+/*   Updated: 2023/02/27 15:50:15 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
-static char	**malloc_error(char **tab)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (tab[i])
-		free(tab[i++]);
-	free(tab);
-	return (NULL);
-}
 
 int	is_saperator(char c, char *sap)
 {
@@ -76,7 +65,7 @@ char	*ft_strdup_w(char *str, int *index, char *sap)
 		len++;
 	word = (char *) malloc(len + 1);
 	if (!word)
-		return (NULL);
+		ft_error("Malloc failed\n");
 	i = 0;
 	while (str[*index])
 	{
@@ -104,15 +93,13 @@ char	**ft_split(char *str, char *sap)
 	words = count_words(str, sap);
 	arr_str = (char **) malloc((words + 1) * 8);
 	if (!arr_str)
-		return (NULL);
+		ft_error("Malloc failed\n");
 	while (w_i < words)
 	{
 		while (is_saperator(str[i], sap) && str[i])
 			if (!str[i++])
 				break ;
 		arr_str[w_i] = ft_strdup_w(str, &i, sap);
-		if (!arr_str[w_i])
-			return (malloc_error(arr_str));
 		w_i++;
 	}
 	arr_str[words] = 0;

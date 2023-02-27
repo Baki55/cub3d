@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:12:40 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/08 17:48:15 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:41:25 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*ft_itoa(int n)
 	nl += num_len(n);
 	num = malloc(sizeof(char) * (nl + 1));
 	if (!num)
-		return (NULL);
+		ft_error("Malloc failed\n");
 	if (n == 0)
 		num[i++] = '0';
 	while (nbr)

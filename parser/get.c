@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
+/*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:19:48 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/27 11:05:59 by bkhatib          ###   ########.fr       */
+/*   Updated: 2023/02/27 15:52:47 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ void	get_map(t_program *ptr)
 	i = 0;
 	j = 0;
 	ptr->map.row = get_map_len(ptr);
-	ptr->map.map = malloc(sizeof(char *) * (ptr->map.row + 1));
 	ptr->map.col = 0;
+	ptr->map.map = malloc(sizeof(char *) * (ptr->map.row + 1));
 	if (!ptr->map.map)
 		ft_error("Malloc Error: parser.c: 201\n");
 	while (ptr->cub_content[i])

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
+/*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:26:40 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/01/24 20:26:47 by bkhatib          ###   ########.fr       */
+/*   Updated: 2023/02/27 15:39:25 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strndup(char *s1, int n)
 	s1_len = ft_strlen(s1);
 	copy = malloc(sizeof(char) * (s1_len + 1));
 	if (!copy)
-		return (NULL);
+		ft_error("Malloc failed\n");
 	while (s1[i] && i < n)
 	{
 		copy[i] = s1[i];

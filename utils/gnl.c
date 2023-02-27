@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 21:39:28 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/23 18:18:03 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:40:16 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static char	*join_line(char *s1, char *s2)
 
 	if (!s1)
 		s1 = ft_calloc(1, sizeof(char));
-	if (!s1 || !s2)
-		return (NULL);
+	if (!s1)
+		ft_error("Malloc failed\n");
 	size = ft_strlen(s1) + ft_strlen(s2);
 	str = malloc((size + 1) * sizeof(char));
 	if (!str)
-		return (NULL);
+		ft_error("Malloc failed\n");
 	str[size] = '\0';
 	i = 0;
 	j = 0;
@@ -55,7 +55,7 @@ static char	*cpyline(char *file)
 		i++;
 	line = malloc((i + 1) * sizeof(char));
 	if (!line)
-		return (NULL);
+		ft_error("Malloc failed\n");
 	line[i] = '\0';
 	i = 0;
 	while (file[i] && file[i] != '\n')
@@ -84,7 +84,7 @@ static char	*point_nxtline(char *file)
 	i++;
 	nxtline = malloc((ft_strlen(file + i) + 1) * sizeof(char));
 	if (!nxtline)
-		return (NULL);
+		ft_error("Malloc failed\n");
 	j = 0;
 	while (file[i])
 		nxtline[j++] = file[i++];
@@ -100,6 +100,8 @@ static char	*readfile(char *file, int fd)
 
 	end = 1;
 	tmp = ft_calloc(2, sizeof(char));
+	if (!tmp)
+		ft_error("Malloc failed\n");
 	while (!ft_strchr(tmp, '\n') && end != 0)
 	{
 		end = read(fd, tmp, 1);
