@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 19:31:13 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/27 17:52:38 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/27 18:14:26 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ void	put_tex(t_program *game_ptr, t_img tex)
 		game_ptr->tex_y = (int)game_ptr->tex_pos & (tex.height - 1);
 		game_ptr->tex_pos += game_ptr->tex_step;
 		color = tex.arr[tex.height * game_ptr->tex_y + game_ptr->tex_x];
-		// if (game_ptr->side == 1)
-		// 	color = (color >> 1) & 8355711;
 		my_mlx_pixel_put(&(game_ptr->img), game_ptr->x, y, color);
 		y++;
 	}
