@@ -6,7 +6,7 @@
 /*   By: bkhatib <bkhatib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:44 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/27 11:32:24 by bkhatib          ###   ########.fr       */
+/*   Updated: 2023/02/28 11:52:03 by bkhatib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <string.h>
 # include <math.h>
 # include <sys/errno.h>
+# include <float.h>
 # include "mlx.h"
 
 /* Windows */
