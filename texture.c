@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 19:31:13 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/27 18:14:26 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/28 13:44:27 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,6 @@ void	init_tex(t_program *game_ptr, t_img tex)
 		game_ptr->raydir_x;
 	game_ptr->wallx -= (int)((game_ptr->wallx));
 	game_ptr->tex_x = (int)(game_ptr->wallx * (double)(tex.width));
-	if (game_ptr->side == 0 && game_ptr->raydir_x > 0)
-		game_ptr->tex_x = tex.width - game_ptr->tex_x - 1;
-	if (game_ptr->side == 1 && game_ptr->raydir_y < 0)
-		game_ptr->tex_x = tex.width - game_ptr->tex_x - 1;
 	game_ptr->tex_step = 1.0 * tex.height / game_ptr->line_height;
 	game_ptr->tex_pos = (game_ptr->draw_start - game_ptr->screen_h \
 		/ 2 + game_ptr->line_height / 2) * game_ptr->tex_step;

@@ -12,17 +12,6 @@
 
 #include "../cub3d.h"
 
-static char	**malloc_error(char **tab)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (tab[i])
-		free(tab[i++]);
-	free(tab);
-	return (NULL);
-}
-
 int	is_separator(char c, char *sep)
 {
 	int	i;
@@ -76,7 +65,7 @@ char	*ft_strdup_w(char *str, int *index, char *sep)
 		len++;
 	word = (char *) malloc(len + 1);
 	if (!word)
-		return (NULL);
+		ft_error("Malloc failed\n");
 	i = 0;
 	while (str[*index])
 	{
@@ -104,15 +93,13 @@ char	**ft_split(char *str, char *sep)
 	words = count_words(str, sep);
 	arr_str = (char **) malloc((words + 1) * 8);
 	if (!arr_str)
-		return (NULL);
+		ft_error("Malloc failed\n");
 	while (w_i < words)
 	{
 		while (is_separator(str[i], sep) && str[i])
 			if (!str[i++])
 				break ;
 		arr_str[w_i] = ft_strdup_w(str, &i, sep);
-		if (!arr_str[w_i])
-			return (malloc_error(arr_str));
 		w_i++;
 	}
 	arr_str[words] = 0;
