@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:22:13 by bkhatib           #+#    #+#             */
-/*   Updated: 2023/02/27 17:08:17 by blaurent         ###   ########.fr       */
+/*   Updated: 2023/02/28 13:58:43 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ static int	close_game(t_program *game)
 	mlx_destroy_image(game->mlx, game->tex_west_img.ptr);
 	mlx_destroy_image(game->mlx, game->tex_east_img.ptr);
 	mlx_destroy_window(game->mlx, game->win_ptr);
-	free(game->mlx);
 	exit(EXIT_SUCCESS);
 }
 
