@@ -43,7 +43,7 @@ Then, follow these steps:
 
 1. Clone the repository:
 ```
-git clone https://github.com/yourusername/cub3D.git
+git clone https://github.com/Baki55/cub3d.git
 ```
 2. Change into the cloned directory:
 ```
