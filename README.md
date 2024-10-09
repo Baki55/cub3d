@@ -37,7 +37,7 @@ The cub3D project aims to enhance our skills in graphics, window management, and
 
 ## Installation
 
-To build and run cub3D you need a c++ compiler, make and MiniLibX must be installed. [You can install it here](https://github.com/42Paris/minilibx-linux) and [This doc explains how this library works.](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html)
+To build and run cub3D you need a c++ compiler, make and MiniLibX must be installed. [You can install it here](https://github.com/42Paris/minilibx-linux) and [this doc explains how this library works.](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html)
 
 Then, follow these steps:
 
